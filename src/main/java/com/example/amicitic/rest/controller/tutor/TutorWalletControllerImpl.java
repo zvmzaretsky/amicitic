@@ -1,5 +1,6 @@
 package com.example.amicitic.rest.controller.tutor;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -7,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 public record TutorWalletControllerImpl() implements TutorWalletController {
 
     @Override
-    @GetMapping
-    public double get(@PathVariable long id) {
-        return 0;
+    @GetMapping()
+    public ResponseEntity<Object> get(@PathVariable long id) {
+        return null;
     }
 
     @Override
-    @PostMapping
-    public double send(@PathVariable long id, @RequestBody double coins) {
-        return 0;
+    @PostMapping()
+    public ResponseEntity<Object> send(@PathVariable long id, long receiverId, @RequestBody double coins) {
+        return null;
     }
 }

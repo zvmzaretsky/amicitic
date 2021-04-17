@@ -1,6 +1,9 @@
 package com.example.amicitic.rest.controller;
 
+import org.springframework.http.ResponseEntity;
+
 public interface WalletController {
-    double get(long id);
-    double send(long id, double coins);
+    ResponseEntity<Object> get(long id);
+
+    ResponseEntity<Object> send(long id, long receiverId, double coins);
 }

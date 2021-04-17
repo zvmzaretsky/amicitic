@@ -1,10 +1,9 @@
 package com.example.amicitic.rest.controller.student;
 
-import com.example.amicitic.rest.dto.GradeDTO;
-
-import java.util.List;
+import org.springframework.http.ResponseEntity;
 
 public interface StudentGradeController {
-    List<GradeDTO> getList(long studentId);
-    GradeDTO get(long studentId, long gradeId);
+    ResponseEntity<Object> getList(long studentId);
+
+    ResponseEntity<Object> get(long studentId, long gradeId);
 }
