@@ -2,9 +2,11 @@ package com.example.amicitic.rest.controller.school;
 
 import com.example.amicitic.rest.dto.school.AddSubjectDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping()
 public record SchoolSubjectControllerImpl() implements SchoolSubjectController {

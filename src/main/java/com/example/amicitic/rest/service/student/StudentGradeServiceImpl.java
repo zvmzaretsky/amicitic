@@ -9,12 +9,12 @@ import java.util.List;
 public record StudentGradeServiceImpl() implements StudentGradeService {
 
     @Override
-    public List<GradeDTO> getList(long studentId) {
+    public List<GradeDTO> getList(String id) {
         return null;
     }
 
     @Override
-    public GradeDTO get(long studentId, long gradeId) {
+    public GradeDTO get(String id) {
         return null;
     }
 }

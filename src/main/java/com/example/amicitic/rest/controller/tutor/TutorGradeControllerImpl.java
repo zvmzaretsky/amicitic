@@ -1,45 +1,38 @@
 package com.example.amicitic.rest.controller.tutor;
 
-import com.example.amicitic.rest.dto.SetGradeDTO;
 import com.example.amicitic.rest.service.tutor.TutorGradeServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/tutor/{id}/grade")
+@RequestMapping("/tutor/grade/{id}")
 public record TutorGradeControllerImpl(TutorGradeServiceImpl service) implements TutorGradeController {
 
     @Override
-    @PostMapping("/{student_id}")
+    @PostMapping
     public ResponseEntity<Object> set(
             @PathVariable String id,
-            @PathVariable("student_id") String studentId,
             @RequestBody int grade
     ) {
         return null;
     }
 
     @Override
-    @PatchMapping("/{student_id}")
+    @PatchMapping
     public ResponseEntity<Object> change(
             @PathVariable String id,
-            @PathVariable("student_id") String studentId,
-            @RequestBody String gradeId,
-            int grade
+            @RequestBody int grade
     ) {
         return null;
     }
 
     @Override
-    @DeleteMapping("/{student_id}/{grade_id}")
-    public ResponseEntity<Object> remove(
-            @PathVariable String id,
-            @PathVariable("student_id") String studentId,
-            @PathVariable("grade_id") String gradeId
-    ) {
+    @DeleteMapping
+    public ResponseEntity<Object> remove(@PathVariable String id) {
         try {
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getList(studentId));
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getList(id));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -53,10 +46,9 @@ public record TutorGradeControllerImpl(TutorGradeServiceImpl service) implements
     }
 
     @Override
-    @GetMapping("/{grade_id}")
+    @GetMapping
     public ResponseEntity<Object> get(
-            @PathVariable String id,
-            @PathVariable("grade_id") String gradeId
+            @PathVariable String id
     ) {
         return null;
     }

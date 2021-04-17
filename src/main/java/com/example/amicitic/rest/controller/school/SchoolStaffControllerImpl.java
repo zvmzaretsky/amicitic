@@ -5,8 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/school/{id}/staff")
+@RequestMapping("/school/staff/{id}")
 public record SchoolStaffControllerImpl(SchoolStaffServiceImpl service) implements SchoolStaffController {
 
     @Override

@@ -1,11 +1,8 @@
 package com.example.amicitic.database;
 
-import com.example.amicitic.database.HomeworkModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.util.List;
 
 @Document(collection = "tutors")
 public class TutorModel {
@@ -31,7 +28,10 @@ public class TutorModel {
     @Field
     private double amicoins;
 
-    public TutorModel(String id, String firstName, String lastName, String email, String phone, long dateOfBirth, double amicoins) {
+    @Field
+    private String school;
+
+    public TutorModel(String id, String firstName, String lastName, String email, String phone, long dateOfBirth, double amicoins, String school) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,13 +39,16 @@ public class TutorModel {
         this.phone = phone;
         this.dateOfBirth = dateOfBirth;
         this.amicoins = amicoins;
+        this.school = school;
     }
 
-    public TutorModel(String firstName, String lastName, long dateOfBirth) {
+    public TutorModel(String firstName, String lastName, String email, String phone, long dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
         this.dateOfBirth = dateOfBirth;
-        this.amicoins = 0;
+        this.amicoins = 1000;
     }
 
     public TutorModel() {
@@ -107,4 +110,11 @@ public class TutorModel {
         this.amicoins = amicoins;
     }
 
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
 }

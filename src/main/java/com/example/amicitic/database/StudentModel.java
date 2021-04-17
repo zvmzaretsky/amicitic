@@ -1,12 +1,8 @@
 package com.example.amicitic.database;
 
-import com.example.amicitic.database.HomeworkModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Document(collection = "students")
 public class StudentModel {
@@ -42,11 +38,13 @@ public class StudentModel {
         this.amicoins = amicoins;
     }
 
-    public StudentModel(String firstName, String lastName, long dateOfBirth) {
+    public StudentModel(String firstName, String lastName, String email, String phone, long dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
         this.dateOfBirth = dateOfBirth;
-        this.amicoins = 0;
+        this.amicoins = 1000;
     }
 
     public StudentModel() {

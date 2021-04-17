@@ -10,17 +10,17 @@ import java.util.List;
 public record SchoolGradeServiceImpl() implements SchoolGradeService {
 
     @Override
-    public void set(String issuerId, String studentId, int grade) {
+    public void set(String id, int grade) {
 
     }
 
     @Override
-    public void change(String issuerId, String studentId, String gradeId, int grade) {
+    public void change(String id, int grade) {
 
     }
 
     @Override
-    public void remove(String issuerId, String studentId, String gradeId) {
+    public void remove(String id) {
 
     }
 
@@ -30,7 +30,7 @@ public record SchoolGradeServiceImpl() implements SchoolGradeService {
     }
 
     @Override
-    public GradeDTO get(String studentId, String gradeId) {
+    public GradeDTO get(String id) {
         return null;
     }
 }

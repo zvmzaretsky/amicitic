@@ -3,6 +3,7 @@ package com.example.amicitic.rest.controller.tutor;
 import com.example.amicitic.rest.dto.tutor.TutorProfileDTO;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/tutor/{id}/profile")
 public record TutorProfileControllerImpl() implements TutorProfileController {

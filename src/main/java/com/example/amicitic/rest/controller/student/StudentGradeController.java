@@ -5,5 +5,5 @@ import org.springframework.http.ResponseEntity;
 public interface StudentGradeController {
     ResponseEntity<Object> getList(String studentId);
 
-    ResponseEntity<Object> get(String studentId, String gradeId);
+    ResponseEntity<Object> get(String id);
 }

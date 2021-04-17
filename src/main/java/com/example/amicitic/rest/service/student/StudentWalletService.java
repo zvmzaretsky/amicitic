@@ -1,4 +1,6 @@
 package com.example.amicitic.rest.service.student;
 
-public interface StudentWalletService {
+import com.example.amicitic.rest.service.WalletService;
+
+public interface StudentWalletService extends WalletService {
 }

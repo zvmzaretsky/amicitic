@@ -1,7 +1,7 @@
 package com.example.amicitic.rest.controller.student;
 
-import com.example.amicitic.rest.dto.student.StudentProfileDTO;
+import org.springframework.http.ResponseEntity;
 
 public interface StudentProfileController {
-    StudentProfileDTO get(String studentId);
+    ResponseEntity<Object> get(String studentId);
 }
