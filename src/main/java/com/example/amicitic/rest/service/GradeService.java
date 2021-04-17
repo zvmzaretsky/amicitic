@@ -5,9 +5,9 @@ import com.example.amicitic.rest.dto.SetGradeDTO;
 import com.example.amicitic.rest.service.student.StudentGradeService;
 
 public interface GradeService extends StudentGradeService {
-    void set(long issuerId, long studentId, SetGradeDTO grade);
+    void set(String issuerId, String studentId, int grade);
 
-    void change(long issuerId, long studentId, long gradeId, SetGradeDTO grade);
+    void change(String issuerId, String studentId, String gradeId, int grade);
 
-    void remove(long issuerId, long studentId, long gradeId);
+    void remove(String issuerId, String studentId, String gradeId);
 }

@@ -9,13 +9,9 @@ public record StudentProfileControllerImpl() implements StudentProfileController
 
     @Override
     @GetMapping
-    public StudentProfileDTO get(@PathVariable long id) {
+    public StudentProfileDTO get(@PathVariable String id) {
         return null;
     }
 
-    @Override
-    @PostMapping
-    public void set(@PathVariable long id, @RequestBody StudentProfileDTO dto) {
 
-    }
 }

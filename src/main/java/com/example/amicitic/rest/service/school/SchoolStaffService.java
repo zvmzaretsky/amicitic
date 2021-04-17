@@ -1,16 +1,15 @@
 package com.example.amicitic.rest.service.school;
 
-import com.example.amicitic.rest.dto.school.AddStaffDTO;
 import com.example.amicitic.rest.dto.school.GetStaffDTO;
 
 import java.util.List;
 
 public interface SchoolStaffService {
-    void add(long id, AddStaffDTO dto);
+    void add(String id, String staffId);
 
-    void remove(long id, long staffId);
+    void remove(String id, String staffId);
 
-    GetStaffDTO get(long id, long staffId);
+    GetStaffDTO get(String id, String staffId);
 
-    List<GetStaffDTO> getList(long id);
+    List<GetStaffDTO> getList(String id);
 }

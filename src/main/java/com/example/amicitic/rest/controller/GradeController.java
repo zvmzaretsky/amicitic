@@ -5,9 +5,9 @@ import com.example.amicitic.rest.dto.SetGradeDTO;
 import org.springframework.http.ResponseEntity;
 
 public interface GradeController extends StudentGradeController {
-    ResponseEntity<Object> set(long id, long studentId, SetGradeDTO grade);
+    ResponseEntity<Object> set(String id, String studentId, int grade);
 
-    ResponseEntity<Object> change(long id, long studentId, long gradeId, SetGradeDTO grade);
+    ResponseEntity<Object> change(String id, String studentId, String gradeId, int grade);
 
-    ResponseEntity<Object> remove(long id, long studentId, long gradeId);
+    ResponseEntity<Object> remove(String id, String studentId, String gradeId);
 }

@@ -1,14 +1,13 @@
 package com.example.amicitic.rest.controller.school;
 
-import com.example.amicitic.rest.dto.school.AddStaffDTO;
 import org.springframework.http.ResponseEntity;
 
 public interface SchoolStaffController {
-    ResponseEntity<Object> add(long id, AddStaffDTO dto);
+    ResponseEntity<Object> add(String id, String staffId);
 
-    ResponseEntity<Object> remove(long id, long staffId);
+    ResponseEntity<Object> remove(String id, String staffId);
 
-    ResponseEntity<Object> get(long id, long staffId);
+    ResponseEntity<Object> get(String id, String staffId);
 
-    ResponseEntity<Object> getList(long id);
+    ResponseEntity<Object> getList(String id);
 }

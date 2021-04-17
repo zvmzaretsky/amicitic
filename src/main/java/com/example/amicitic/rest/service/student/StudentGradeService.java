@@ -5,7 +5,7 @@ import com.example.amicitic.rest.dto.GradeDTO;
 import java.util.List;
 
 public interface StudentGradeService {
-    List<GradeDTO> getList(long studentId);
+    List<GradeDTO> getList(String studentId);
 
-    GradeDTO get(long studentId, long gradeId);
+    GradeDTO get(String studentId, String gradeId);
 }

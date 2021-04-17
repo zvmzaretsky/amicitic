@@ -5,6 +5,7 @@ import com.example.amicitic.database.tutor.TutorModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,17 @@ public class SchoolModel {
     @Id
     private String id;
 
+    @Field
     private String name;
+
+    @Field
+    private String country;
+
+    @Field
+    private String city;
+
+    @Field
+    private double amicoins;
 
     @DBRef
     private List<TutorModel> tutors;
@@ -23,17 +34,18 @@ public class SchoolModel {
     @DBRef
     private List<StudentModel> students;
 
-    private double amicoins;
-
-    public SchoolModel(String id, String name, List<TutorModel> tutors, List<StudentModel> students, double amicoins) {
+    public SchoolModel(String id, String name, String country, String city, List<TutorModel> tutors, List<StudentModel> students, double amicoins) {
         this.id = id;
         this.name = name;
+        this.country = country;
+        this.city = city;
         this.tutors = tutors;
         this.students = students;
         this.amicoins = amicoins;
     }
 
     public SchoolModel(String name) {
+        System.out.println("nameeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee: " + name);
         this.name = name;
         this.tutors = new ArrayList<>();
         this.students = new ArrayList<>();
@@ -57,6 +69,22 @@ public class SchoolModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public List<TutorModel> getTutors() {

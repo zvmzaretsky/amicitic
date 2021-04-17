@@ -1,5 +1,6 @@
 package com.example.amicitic.rest.controller.school;
 
+import com.example.amicitic.rest.controller.school.SchoolWalletController;
 import com.example.amicitic.rest.service.school.SchoolWalletServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public record SchoolWalletControllerImpl(SchoolWalletServiceImpl service) implements SchoolWalletController {
 
     @Override
-    public ResponseEntity<Object> get(@PathVariable long id) {
+    public ResponseEntity<Object> get(@PathVariable String id) {
         try {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.get(id));
 
@@ -21,8 +22,8 @@ public record SchoolWalletControllerImpl(SchoolWalletServiceImpl service) implem
 
     @Override
     public ResponseEntity<Object> send(
-            @PathVariable long id,
-            @RequestParam long receiverId,
+            @PathVariable String id,
+            @RequestParam String receiverId,
             @RequestBody double coins
     ) {
         try {

@@ -13,27 +13,30 @@ public record TutorGradeControllerImpl(TutorGradeServiceImpl service) implements
     @Override
     @PostMapping("/{student_id}")
     public ResponseEntity<Object> set(
-            @PathVariable long id,
-            @PathVariable("student_id") long studentId,
-            @RequestBody SetGradeDTO grade) {
+            @PathVariable String id,
+            @PathVariable("student_id") String studentId,
+            @RequestBody int grade
+    ) {
         return null;
     }
 
     @Override
     @PatchMapping("/{student_id}")
     public ResponseEntity<Object> change(
-            @PathVariable long id,
-            @PathVariable("student_id") long studentId,
-            @RequestBody long gradeId, SetGradeDTO grade) {
+            @PathVariable String id,
+            @PathVariable("student_id") String studentId,
+            @RequestBody String gradeId,
+            int grade
+    ) {
         return null;
     }
 
     @Override
     @DeleteMapping("/{student_id}/{grade_id}")
     public ResponseEntity<Object> remove(
-            @PathVariable long id,
-            @PathVariable("student_id") long studentId,
-            @PathVariable("grade_id") long gradeId
+            @PathVariable String id,
+            @PathVariable("student_id") String studentId,
+            @PathVariable("grade_id") String gradeId
     ) {
         try {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getList(studentId));
@@ -45,13 +48,16 @@ public record TutorGradeControllerImpl(TutorGradeServiceImpl service) implements
 
     @Override
     @GetMapping("/list")
-    public ResponseEntity<Object> getList(@PathVariable long id) {
+    public ResponseEntity<Object> getList(@PathVariable String id) {
         return null;
     }
 
     @Override
     @GetMapping("/{grade_id}")
-    public ResponseEntity<Object> get(@PathVariable long id, @PathVariable("grade_id") long gradeId) {
+    public ResponseEntity<Object> get(
+            @PathVariable String id,
+            @PathVariable("grade_id") String gradeId
+    ) {
         return null;
     }
 }

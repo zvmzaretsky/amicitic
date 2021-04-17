@@ -3,7 +3,7 @@ package com.example.amicitic.rest.service.school;
 import com.example.amicitic.rest.dto.school.SchoolProfileDTO;
 
 public interface SchoolProfileService {
-    SchoolProfileDTO get(long schoolId);
+    SchoolProfileDTO get(String schoolId);
 
-    void set(long schoolId, SchoolProfileDTO dto);
+    void set(String schoolId, SchoolProfileDTO dto);
 }

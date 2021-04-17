@@ -1,7 +1,7 @@
 package com.example.amicitic.rest.service;
 
 public interface WalletService {
-    double get(long id);
+    double get(String id);
 
-    void send(long id, long receiverId, double coins);
+    void send(String id, String receiverId, double coins);
 }

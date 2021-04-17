@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccountSchoolRepository extends MongoRepository<SchoolModel, String> {
+
+    boolean existsByName(String name);
 }

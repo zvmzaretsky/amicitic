@@ -9,6 +9,7 @@ import com.example.amicitic.rest.dto.account.CreateTutorDTO;
 import com.example.amicitic.rest.repository.account.AccountSchoolRepository;
 import com.example.amicitic.rest.repository.account.AccountStudentRepository;
 import com.example.amicitic.rest.repository.account.AccountTutorRepository;
+import com.example.amicitic.util.exceptions.AlreadyExistsException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,11 +21,19 @@ public record AccountServiceImpl(
 
     @Override
     public void createSchool(CreateSchoolDTO dto) {
+
+        if (schoolRepository.existsByName(dto.name()))
+            throw new AlreadyExistsException();
+
         schoolRepository.save(new SchoolModel(dto.name()));
     }
 
     @Override
     public void createTutor(CreateTutorDTO dto) {
+
+        if (tutorRepository.existsByEmailOrPhone(dto.email(), dto.phone()))
+            throw new AlreadyExistsException();
+
         tutorRepository.save(new TutorModel(
                 dto.firstName(),
                 dto.lastName(),
@@ -34,6 +43,10 @@ public record AccountServiceImpl(
 
     @Override
     public void createStudent(CreateStudentDTO dto) {
+
+        if (studentRepository.existsByEmailOrPhone(dto.email(), dto.phone()))
+            throw new AlreadyExistsException();
+
         studentRepository.save(new StudentModel(
                 dto.firstName(),
                 dto.lastName(),

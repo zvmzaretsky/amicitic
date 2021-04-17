@@ -1,6 +1,5 @@
 package com.example.amicitic.rest.controller.school;
 
-import com.example.amicitic.rest.dto.school.AddStaffDTO;
 import com.example.amicitic.rest.service.school.SchoolStaffServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +11,12 @@ public record SchoolStaffControllerImpl(SchoolStaffServiceImpl service) implemen
 
     @Override
     @PostMapping
-    public ResponseEntity<Object> add(@PathVariable long id, @RequestBody AddStaffDTO dto) {
+    public ResponseEntity<Object> add(
+            @PathVariable String id,
+            @RequestBody String staffId
+    ) {
         try {
-            service.add(id, dto);
+            service.add(id, staffId);
             return ResponseEntity.status(HttpStatus.CREATED).build();
 
         } catch (Exception e) {
@@ -24,7 +26,10 @@ public record SchoolStaffControllerImpl(SchoolStaffServiceImpl service) implemen
 
     @Override
     @DeleteMapping("/{staff_id}")
-    public ResponseEntity<Object> remove(@PathVariable long id, @PathVariable("staff_id") long staffId) {
+    public ResponseEntity<Object> remove(
+            @PathVariable String id,
+            @PathVariable("staff_id") String staffId
+    ) {
         try {
             service.remove(id, staffId);
             return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -36,7 +41,10 @@ public record SchoolStaffControllerImpl(SchoolStaffServiceImpl service) implemen
 
     @Override
     @GetMapping("/{staff_id}")
-    public ResponseEntity<Object> get(@PathVariable long id, @PathVariable("staff_id") long staffId) {
+    public ResponseEntity<Object> get(
+            @PathVariable String id,
+            @PathVariable("staff_id") String staffId
+    ) {
         try {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.get(id, staffId));
 
@@ -47,7 +55,7 @@ public record SchoolStaffControllerImpl(SchoolStaffServiceImpl service) implemen
 
     @Override
     @GetMapping("/list")
-    public ResponseEntity<Object> getList(@PathVariable long id) {
+    public ResponseEntity<Object> getList(@PathVariable String id) {
         try {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getList(id));
 

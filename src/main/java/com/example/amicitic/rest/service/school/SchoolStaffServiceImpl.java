@@ -1,6 +1,5 @@
 package com.example.amicitic.rest.service.school;
 
-import com.example.amicitic.rest.dto.school.AddStaffDTO;
 import com.example.amicitic.rest.dto.school.GetStaffDTO;
 import org.springframework.stereotype.Service;
 
@@ -10,22 +9,22 @@ import java.util.List;
 public record SchoolStaffServiceImpl() implements SchoolStaffService {
 
     @Override
-    public void add(long id, AddStaffDTO dto) {
+    public void add(String id, String staffId) {
 
     }
 
     @Override
-    public void remove(long id, long staffId) {
+    public void remove(String id, String staffId) {
 
     }
 
     @Override
-    public GetStaffDTO get(long id, long staffId) {
+    public GetStaffDTO get(String id, String staffId) {
         return null;
     }
 
     @Override
-    public List<GetStaffDTO> getList(long id) {
+    public List<GetStaffDTO> getList(String id) {
         return null;
     }
 }

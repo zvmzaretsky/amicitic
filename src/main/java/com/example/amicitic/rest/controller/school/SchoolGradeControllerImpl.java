@@ -13,9 +13,9 @@ public record SchoolGradeControllerImpl(SchoolGradeServiceImpl service) implemen
     @Override
     @PostMapping("/{student_id}")
     public ResponseEntity<Object> set(
-            @PathVariable long id,
-            @PathVariable("student_id") long studentId,
-            @RequestBody SetGradeDTO grade
+            @PathVariable String id,
+            @PathVariable("student_id") String studentId,
+            @RequestBody int grade
     ) {
         try {
             service.set(id, studentId, grade);
@@ -27,28 +27,16 @@ public record SchoolGradeControllerImpl(SchoolGradeServiceImpl service) implemen
     }
 
     @Override
-    @PatchMapping("/{student_id}")
-    public ResponseEntity<Object> change(
-            @PathVariable long id,
-            @PathVariable("student_id") long studentId,
-            @RequestBody long gradeId,
-            SetGradeDTO grade
-    ) {
-        try {
-            service.change(id, studentId, gradeId, grade);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).build();
-
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
+    public ResponseEntity<Object> change(String id, String studentId, String gradeId, int grade) {
+        return null;
     }
 
     @Override
     @DeleteMapping("/{student_id}/{grade_id}")
     public ResponseEntity<Object> remove(
-            @PathVariable long id,
-            @PathVariable("student_id") long studentId,
-            @PathVariable("grade_id") long gradeId
+            @PathVariable String id,
+            @PathVariable("student_id") String studentId,
+            @PathVariable("grade_id") String gradeId
     ) {
         try {
             service.remove(id, studentId, gradeId);
@@ -61,7 +49,7 @@ public record SchoolGradeControllerImpl(SchoolGradeServiceImpl service) implemen
 
     @Override
     @GetMapping("/{student_id}/list")
-    public ResponseEntity<Object> getList(@PathVariable("student_id") long studentId) {
+    public ResponseEntity<Object> getList(@PathVariable("student_id") String studentId) {
         try {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getList(studentId));
 
@@ -73,8 +61,8 @@ public record SchoolGradeControllerImpl(SchoolGradeServiceImpl service) implemen
     @Override
     @GetMapping("/{student_id}/{grade_id}")
     public ResponseEntity<Object> get(
-            @PathVariable("student_id") long studentId,
-            @PathVariable("grade_id") long gradeId
+            @PathVariable("student_id") String studentId,
+            @PathVariable("grade_id") String gradeId
     ) {
         try {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.get(studentId, gradeId));

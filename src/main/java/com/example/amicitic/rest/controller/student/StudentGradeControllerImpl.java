@@ -12,13 +12,13 @@ public record StudentGradeControllerImpl() implements StudentGradeController {
 
     @Override
     @GetMapping("/list")
-    public ResponseEntity<Object> getList(@PathVariable long id) {
+    public ResponseEntity<Object> getList(@PathVariable String id) {
         return null;
     }
 
     @Override
     @GetMapping("/{grade_id}")
-    public ResponseEntity<Object> get(@PathVariable long id, @PathVariable("grade_id") long gradeId) {
+    public ResponseEntity<Object> get(@PathVariable String id, @PathVariable("grade_id") String gradeId) {
         return null;
     }
 }

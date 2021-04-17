@@ -9,13 +9,13 @@ public record StudentWalletControllerImpl() implements StudentWalletController {
 
     @Override
     @GetMapping
-    public ResponseEntity<Object> get(@PathVariable long id) {
+    public ResponseEntity<Object> get(@PathVariable String id) {
         return null;
     }
 
     @Override
     @PostMapping
-    public ResponseEntity<Object> send(@PathVariable long id, long receiverId, @RequestBody double coins) {
+    public ResponseEntity<Object> send(@PathVariable String id, String receiverId, @RequestBody double coins) {
         return null;
     }
 }
