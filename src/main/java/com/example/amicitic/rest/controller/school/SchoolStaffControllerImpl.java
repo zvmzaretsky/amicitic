@@ -1,32 +1,33 @@
 package com.example.amicitic.rest.controller.school;
 
+import com.example.amicitic.rest.dto.school.AddStaffDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/school/staff")
+@RequestMapping("/school/{id}/staff")
 public record SchoolStaffControllerImpl() implements SchoolStaffController {
 
     @Override
     @PostMapping
-    public void add() {
+    public void add(@PathVariable long id, @RequestBody AddStaffDTO dto) {
 
     }
 
     @Override
     @DeleteMapping("/{staff_id}")
-    public void remove(@PathVariable("staff_id") long staffId) {
+    public void remove(@PathVariable long id, @PathVariable("staff_id") long staffId) {
 
     }
 
     @Override
     @GetMapping("/{staff_id}")
-    public void get(@PathVariable("staff_id") long staffId) {
+    public void get(@PathVariable long id, @PathVariable("staff_id") long staffId) {
 
     }
 
     @Override
-    @GetMapping("/{school_id}")
-    public void getList(@PathVariable("school_id") long staffId) {
+    @GetMapping
+    public void getList(@PathVariable long id) {
 
     }
 }

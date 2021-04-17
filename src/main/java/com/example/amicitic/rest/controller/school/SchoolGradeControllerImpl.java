@@ -2,17 +2,20 @@ package com.example.amicitic.rest.controller.school;
 
 import com.example.amicitic.rest.dto.GradeDTO;
 import com.example.amicitic.rest.dto.SetGradeDTO;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/school/grade")
+@RequestMapping("/school/{id}/grade")
 public record SchoolGradeControllerImpl() implements SchoolGradeController {
 
     @Override
-    public void set(long issuerId, long studentId, SetGradeDTO grade) {
+    @PostMapping("")
+    public void set(@PathVariable long id, long studentId, SetGradeDTO grade) {
 
     }
 

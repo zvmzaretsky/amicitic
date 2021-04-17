@@ -12,20 +12,26 @@ public record TutorGradeControllerImpl() implements TutorGradeController {
 
 
     @Override
-    @PostMapping
-    public void set(@PathVariable long id, long studentId, SetGradeDTO grade) {
+    @PostMapping("/{student_id}")
+    public void set(
+            @PathVariable long id,
+            @PathVariable("student_id") long studentId,
+            @RequestBody SetGradeDTO grade) {
 
     }
 
     @Override
-    @PatchMapping
-    public void change(@PathVariable long id, long studentId, SetGradeDTO grade) {
+    @PatchMapping("/{student_id}")
+    public void change(
+            @PathVariable long id,
+            @PathVariable("student_id") long studentId,
+            @RequestBody SetGradeDTO grade) {
 
     }
 
     @Override
-    @DeleteMapping
-    public void remove(@PathVariable long id, long studentId) {
+    @DeleteMapping("/{student_id}")
+    public void remove(@PathVariable long id, @PathVariable("student_id") long studentId) {
 
     }
 
@@ -36,8 +42,8 @@ public record TutorGradeControllerImpl() implements TutorGradeController {
     }
 
     @Override
-    @GetMapping
-    public GradeDTO get(@PathVariable long id, long gradeId) {
+    @GetMapping("/{grade_id}")
+    public GradeDTO get(@PathVariable long id, @PathVariable("grade_id") long gradeId) {
         return null;
     }
 }
