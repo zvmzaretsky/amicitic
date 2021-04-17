@@ -1,16 +1,16 @@
-package com.example.amicitic.database.blockchain;
+package com.example.amicitic.database;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "blockchain")
-public class BlockModel<T> {
+public class BlockModel {
 
-    private T data;
+    private String data;
     private String previousHash;
     private long timeStamp;
     private String hash;
 
-    public BlockModel(T data, String previousHash, long timeStamp, String hash) {
+    public BlockModel(String data, String previousHash, long timeStamp, String hash) {
         this.data = data;
         this.previousHash = previousHash;
         this.timeStamp = timeStamp;
@@ -20,11 +20,11 @@ public class BlockModel<T> {
     public BlockModel() {
     }
 
-    public T getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(String data) {
         this.data = data;
     }
 

@@ -1,4 +1,7 @@
 package com.example.amicitic.rest.repository;
 
-public interface BlockchainRepository {
+import com.example.amicitic.database.BlockModel;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface BlockchainRepository extends MongoRepository<BlockModel, String> {
 }

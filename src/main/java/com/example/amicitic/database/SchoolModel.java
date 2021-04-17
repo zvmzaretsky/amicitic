@@ -1,7 +1,7 @@
-package com.example.amicitic.database.school;
+package com.example.amicitic.database;
 
-import com.example.amicitic.database.student.StudentModel;
-import com.example.amicitic.database.tutor.TutorModel;
+import com.example.amicitic.database.StudentModel;
+import com.example.amicitic.database.TutorModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;

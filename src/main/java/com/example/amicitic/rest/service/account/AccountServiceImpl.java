@@ -1,22 +1,22 @@
 package com.example.amicitic.rest.service.account;
 
-import com.example.amicitic.database.school.SchoolModel;
-import com.example.amicitic.database.student.StudentModel;
-import com.example.amicitic.database.tutor.TutorModel;
+import com.example.amicitic.database.SchoolModel;
+import com.example.amicitic.database.StudentModel;
+import com.example.amicitic.database.TutorModel;
 import com.example.amicitic.rest.dto.account.CreateSchoolDTO;
 import com.example.amicitic.rest.dto.account.CreateStudentDTO;
 import com.example.amicitic.rest.dto.account.CreateTutorDTO;
-import com.example.amicitic.rest.repository.account.AccountSchoolRepository;
-import com.example.amicitic.rest.repository.account.AccountStudentRepository;
-import com.example.amicitic.rest.repository.account.AccountTutorRepository;
+import com.example.amicitic.rest.repository.SchoolRepository;
+import com.example.amicitic.rest.repository.StudentRepository;
+import com.example.amicitic.rest.repository.TutorRepository;
 import com.example.amicitic.util.exceptions.AlreadyExistsException;
 import org.springframework.stereotype.Service;
 
 @Service
 public record AccountServiceImpl(
-        AccountSchoolRepository schoolRepository,
-        AccountTutorRepository tutorRepository,
-        AccountStudentRepository studentRepository
+        SchoolRepository schoolRepository,
+        TutorRepository tutorRepository,
+        StudentRepository studentRepository
 ) implements AccountService {
 
     @Override

@@ -1,6 +1,6 @@
 package com.example.amicitic.blockchain;
 
-import com.example.amicitic.database.blockchain.BlockModel;
+import com.example.amicitic.database.BlockModel;
 import org.springframework.util.SerializationUtils;
 
 import java.util.Base64;
@@ -28,9 +28,9 @@ public class BlockWriter {
         return localInstance;
     }
 
-    public BlockModel<Action.Registration> userRegistered(String id) {
+    public BlockModel userRegistered(String id) {
 
-        BlockModel<Action.Registration> model = new Block<>(
+        BlockModel model = new Block<>(
                 new Action.Registration(id),
                 lastHash
         ).toBlockModel();
@@ -40,9 +40,9 @@ public class BlockWriter {
         return model;
     }
 
-    public BlockModel<Action.Transaction> transactionMade(String from, String to, double coins) {
+    public BlockModel transactionMade(String from, String to, double coins) {
 
-        BlockModel<Action.Transaction> model = new Block<>(
+        BlockModel model = new Block<>(
                 new Action.Transaction(from, to, coins),
                 lastHash
         ).toBlockModel();
@@ -52,11 +52,11 @@ public class BlockWriter {
         return model;
     }
 
-    public BlockModel<Action.Homework> homeworkSent(String student, String to, Object homework) {
+    public BlockModel homeworkSent(String student, String to, Object homework) {
 
         String data = Base64.getEncoder().encodeToString(SerializationUtils.serialize(homework));
 
-        BlockModel<Action.Homework> model = new Block<>(
+        BlockModel model = new Block<>(
                 new Action.Homework(student, to, data),
                 lastHash
         ).toBlockModel();
@@ -66,9 +66,9 @@ public class BlockWriter {
         return model;
     }
 
-    public BlockModel<Action.Grade> gradeSet(String from, String student, int grade) {
+    public BlockModel gradeSet(String from, String student, int grade) {
 
-        BlockModel<Action.Grade> model = new Block<>(
+        BlockModel model = new Block<>(
                 new Action.Grade(from, student, grade),
                 lastHash
         ).toBlockModel();

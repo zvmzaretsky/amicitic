@@ -1,6 +1,6 @@
 package com.example.amicitic.blockchain;
 
-import com.example.amicitic.database.blockchain.BlockModel;
+import com.example.amicitic.database.BlockModel;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -48,9 +48,9 @@ public class Block<T> {
         return builder.toString();
     }
 
-    public BlockModel<T> toBlockModel() {
-        return new BlockModel<>(
-                data,
+    public BlockModel toBlockModel() {
+        return new BlockModel(
+                data.toString(),
                 previousHash,
                 timeStamp,
                 hash

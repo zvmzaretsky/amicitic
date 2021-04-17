@@ -1,4 +1,4 @@
-package com.example.amicitic.database.tutor;
+package com.example.amicitic.database;
 
 import com.example.amicitic.database.HomeworkModel;
 import org.springframework.data.annotation.Id;
@@ -31,9 +31,7 @@ public class TutorModel {
     @Field
     private double amicoins;
 
-    private List<HomeworkModel> homework;
-
-    public TutorModel(String id, String firstName, String lastName, String email, String phone, long dateOfBirth, double amicoins, List<HomeworkModel> homework) {
+    public TutorModel(String id, String firstName, String lastName, String email, String phone, long dateOfBirth, double amicoins) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,7 +39,6 @@ public class TutorModel {
         this.phone = phone;
         this.dateOfBirth = dateOfBirth;
         this.amicoins = amicoins;
-        this.homework = homework;
     }
 
     public TutorModel(String firstName, String lastName, long dateOfBirth) {
@@ -110,11 +107,4 @@ public class TutorModel {
         this.amicoins = amicoins;
     }
 
-    public List<HomeworkModel> getHomework() {
-        return homework;
-    }
-
-    public void setHomework(List<HomeworkModel> homework) {
-        this.homework = homework;
-    }
 }
